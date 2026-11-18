@@ -1,10 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Luis Enrique Garcia Moreno
 
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+<!-- Populated by /setup Path A on 2026-11-18. Full detail lives in
+.claude/skills/job-application-assistant/01-candidate-profile.md and 02-behavioral-profile.md. -->
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Luis Enrique Garcia Moreno (Enrique), helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,79 +13,87 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Luis Enrique Garcia Moreno (goes by Enrique)
+- **Location:** Berlin, Germany (on-site in Berlin, or remote within Germany; remote preferred)
+- **Contact:** +49 151 47778569 | luisenriquegarciamoreno2@gmail.com | linkedin.com/in/luisenriquegarcia | github.com/LuisEnriqueGarcia96
+- **Nationality / permit:** Peruvian, German student visa - max 20 h/week during the semester
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | Spanish | Native |
+  | English | C1 (Duolingo English Test 130, Feb 2026; TOEFL iBT 95, Dec 2025) |
+  | German | A2 (learning, target B2) |
+  | French | A2 |
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Full-time MSc Artificial Intelligence student at BSBI Berlin (May 2026 - Nov 2027). Seeking a working-student / part-time role now (available immediately, up to 20 h/week), full-time after graduation.
+- **LinkedIn headline:** "Project & Product Management | Digital Transformation | FMCG | Retail"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **MSc in Artificial Intelligence** (May 2026 - Nov 2027, expected) - Berlin School of Business and Innovation (BSBI), Berlin, with University for the Creative Arts
+  - Topics: EU ethical and legal frameworks for new technologies (GDPR, Data Act); ML pipeline, model selection, training and evaluation; predictive AI system in Python (Jupyter)
+- **Bachelor's Degree in Business Administration** (2014-2018, conferred Feb 2019) - Universidad de Lima, Peru - top 10% of class
+- **IB Diploma** (2012-2013) - Liceo Naval Almirante Guise, Lima - 31/45
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Product Manager** (Nov 2025 - Apr 2026) - **Alicorp** (Lima, Peru)
+  - Owned a B2B e-commerce platform for wholesale clients/distributors and a CRM-style sales-force tool; quarterly backlog Q4 2025 / 2026
+  - Scrum with a cross-functional team (frontend, backend, QA, Scrum Master, UX, design, architect); user stories in Jira, UAT and go-lives
+  - Raised digital billing by 20pp to 80% of total client billing in the channel
+- **Digital Project Manager** (Oct 2024 - Oct 2025) - **Alicorp** (Lima, Peru)
+  - Portfolio of digital projects for Retail and Horeca: roadmaps, KPIs, scope, feasibility; IT, Finance, vendors
+  - Routing SaaS (TMS) rollout: 100% truck adoption, routing time -60%; digital financial ecosystem with BCP/Yape; reporting automation
+- **Sr Specialist Omnichannel Marketing** (Dec 2021 - May 2024) - **adidas** (Lima, Peru)
+  - Category and merchandising strategy, space management, store openings/remodels
+  - Merchandising-audit mobile app (2022-2023); campaign analytics project with a daily Power BI dashboard and standardized templates (2022-2023)
+  - Owned Football and Outdoor categories: +9% vs 2022
+- **Category Analyst, Trade Marketing** (Jan 2021 - Dec 2021) - **Alicorp** - pricing/margin strategy; fabric care sell-out +10%; fill rate +5pp
+- **Sales Operations Analyst** (Feb 2019 - Jan 2021) - **Alicorp** - automated payment-document registration; launched web sales platform for wholesale customers
+- Earlier: Trade Marketing Intern, Alicorp (2017-2018); Sales Operations Intern, Pacífico Seguros (2016-2017)
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Product management, Agile/Scrum, backlog prioritization, release planning, UAT/go-live coordination, stakeholder management, digital transformation, process automation
+- **Secondary:** Data analytics and BI (Power BI, Tableau, Excel), Python (Jupyter) and ML fundamentals (MSc); currently developing chatbot development, Rasa and NLP
+- **Domain:** FMCG/CPG, retail (sportswear), B2B e-commerce, trade marketing, category management, pricing, sales operations, EU data regulation (GDPR, Data Act)
+- **Software:** Jira, Figma, Miro, Notion, Smartsheet, MS Office, Claude Code, Lovable, Microsoft Copilot, Google AgentSpace
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Data Analytics Certification** - Coderhouse - Jul 2024 - Jan 2025
+- **Procesamiento de Datos en Excel** - Coderhouse - 20h - completed Aug 2024
+- **Power BI para la Gestión de Datos** - Instituto Peruano de Negocios - 50h - completed Aug 2024 (grade 19/20)
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- None.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- Top 10% of class - Universidad de Lima (2018)
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- Inferred from the Alicorp reference letter and a BSBI self-assessment; no formal assessment. -->
+- **Ownership** - leads initiatives from day one, anticipates risks, proposes improvements
+- **Business-to-tech translator** - turns business needs into structured digital solutions and roadmaps
+- **Strengths:** order, planning and rigor; composure with demanding stakeholders; collaboration; discipline and consistency (marathon runner); adaptability
+- **Growth areas:** technical depth (Python/ML, in progress), German (A2), time management
+- **Thrives in:** international, cross-functional product teams bridging business and engineering
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- AI products that are useful, explainable and responsible
+- Sports and health tech (running community builder), and fintech / financial inclusion
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Big tech / software: SAP, Siemens, Google, Amazon, AWS, Audible, Apple, Databricks, GitHub, TikTok, Netflix, Spotify
+- Sports tech / wearables: Garmin, Strava
+- Marketplaces, e-commerce and delivery: Delivery Hero, Wolt, Zalando, eBay, Kleinanzeigen, GetYourGuide, Bolt
+- Fintech: SumUp
+- Long-term purpose: AI Product Manager in sports tech or fintech
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Postings requiring **German at C1 or higher** (C1, "fluent", "verhandlungssicher", "fließend"): skip. This is the candidate's explicit choice and overrides the Language Gate's default FLAG for German.
+- Pay below the German statutory minimum wage.
+- Full-time hours before Nov 2027 (student visa: max 20 h/week during the semester) - flag, don't apply blindly.
+- Relocation outside Berlin; non-Berlin roles must be remote.
+
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

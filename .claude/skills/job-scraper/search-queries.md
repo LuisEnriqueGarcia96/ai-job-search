@@ -1,123 +1,162 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
+<!-- Populated by /setup on 2026-11-18 for Luis Enrique Garcia Moreno (Berlin, MSc AI student,
+working-student roles now, full-time after Nov 2027). -->
 
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. None ship with AI Job Search: copy the ones for your market from [community-portals](https://github.com/ai-job-search-dev/community-portals) (e.g. `linkedin-search`, `freehire-search` under `portals/global/`), or build one with `/add-portal`. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. None ship with AI Job Search: copy the ones for your market from [community-portals](https://github.com/ai-job-search-dev/community-portals), or build one with `/add-portal`. You do **not** need a matching `site:` line below for those CLIs to run.
+
+For this candidate: of the boards he uses, only **LinkedIn** has a community portal (`portals/global/linkedin-search`, checked 2026-11-18). StepStone, Indeed, JobTeaser and Berlin Startup Jobs have no portal yet, so they run through the WebSearch `site:` fallback below (or build one with `/add-portal`).
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
-**Language scope:** write every query category in every language listed in your CLAUDE.md Languages table (typically 1-2, sometimes more). A posting requiring a language you have *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than you declared in a language you *do* work in is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule. Translate each category's keywords rather than machine-translating word-for-word (e.g. "Frontend Developer" -> "Desarrollador Frontend", not a literal word-for-word translation) if you work in more than one language.
+**Language scope:** queries are written in English (working language, C1) and German (Berlin market; many working-student titles are German, e.g. "Werkstudent"). Spanish (native) and French (A2) are declared but not searched by default, since the target market is Berlin/Germany; add Spanish queries if you want Spanish-speaking-market roles. Per `04-job-evaluation.md`, a posting requiring German at C1 or above is a FAIL for this candidate (his explicit deal-breaker).
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by the community `linkedin-search` CLI once installed
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary:
+- **linkedin.com/jobs** - LinkedIn (filter: Berlin, Germany / Remote in Germany); community `linkedin-search` CLI once installed
+- **stepstone.de** - StepStone, Germany's largest general job board
+- **de.indeed.com** - Indeed Germany
+- **jobteaser.com** - JobTeaser (BSBI student career portal; may require login, so WebSearch coverage is partial)
+- **berlinstartupjobs.com** - Berlin Startup Jobs
 
 Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- SAP, Siemens, Garmin, Google, Amazon / AWS / Audible, TikTok, Netflix, Spotify, Strava, GitHub, Delivery Hero, Wolt, GetYourGuide, eBay, Kleinanzeigen, Zalando, Apple, Databricks, Bolt, SumUp
 
 ## Query Categories
 
-Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Each priority has two kinds of block. **Plain terms** blocks are what the portal CLIs consume: one term per line, one CLI call per term, no `OR`, no `site:` prefix, and no location (the CLI's location flag carries it). **WebSearch-only** blocks are Google syntax for the fallback path and are never passed to a CLI.
 
-Each priority has two kinds of block. **Plain terms** blocks are what the portal CLIs consume: one term per line, one CLI call per term, no `OR`, no `site:` prefix, and no location (the CLI's location flag, or the city in `--query` where that portal's SKILL.md says so, carries it). Quote a multi-word phrase only if the portal's `Query syntax:` line says quoting is honoured. **WebSearch-only** blocks are Google syntax (`site:`, quotes, `OR`) for the fallback path and are never passed to a CLI.
+### Priority 1: Product management and agile delivery (working student now, PM later)
 
-**Organize by function, not job title.** The same underlying work carries different titles across companies and markets (a "Data Scientist" role at one employer may be posted as "Insights Analyst" or "Data Consultant" at another). Name each priority category after the function it covers, and list several plausible job titles as query variants within that category rather than betting an entire priority tier on one exact title string.
-
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
-
-These match your strongest and most desired career direction.
+Owning or supporting digital products: backlog, user stories, release and go-live coordination.
 
 #### Plain terms (portal CLIs)
 
 ```
-[YOUR_PRIMARY_JOB_TITLE_1]
-[YOUR_PRIMARY_JOB_TITLE_2]
-[YOUR_KEY_SKILL]
+Working Student Product Management
+Werkstudent Product Management
+Working Student Product Owner
+Werkstudent Produktmanagement
+Working Student Agile Project Support
+Werkstudent Projektmanagement
+Associate Product Manager
+Junior Product Manager
+AI Product Manager
+Product Owner
 ```
 
 #### WebSearch-only (`site:` fallback)
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_2]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "Working Student" "Product" Berlin
+site:stepstone.de "Werkstudent" "Product Management" Berlin
+site:stepstone.de "Werkstudent" "Produktmanagement" Berlin
+site:de.indeed.com "Werkstudent" "Product Owner" Berlin
+site:berlinstartupjobs.com "working student" product
+site:jobteaser.com "Working Student" "Product" Berlin
+site:linkedin.com/jobs "Working Student" "Product" Remote Germany
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: Digital project management, product operations and e-commerce
 
-These match your domain expertise.
+Digital transformation, B2B e-commerce and platform operations (direct domain experience).
 
 #### Plain terms (portal CLIs)
 
 ```
-[YOUR_DOMAIN_KEYWORD_1]
-[YOUR_DOMAIN_KEYWORD_2]
+Working Student Product Operations
+Werkstudent Product Operations
+Working Student Digital Project Management
+Werkstudent Digitalisierung
+Working Student E-Commerce
+Werkstudent E-Commerce
+E-Commerce Manager
+Product Operations
+Digital Project Manager
 ```
 
 #### WebSearch-only (`site:` fallback)
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:stepstone.de "Werkstudent" "E-Commerce" Berlin
+site:stepstone.de "Werkstudent" "Digitalisierung" Berlin
+site:linkedin.com/jobs "Product Operations" "Working Student" Berlin
+site:berlinstartupjobs.com "product operations"
+site:de.indeed.com "Werkstudent" "Projektmanagement" Remote
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 3: Business analysis, AI and solutions consulting (adjacent)
 
-Adjacent roles you could pivot into.
+Roles that use the business-to-tech translation and the MSc AI.
 
 #### Plain terms (portal CLIs)
 
 ```
-[YOUR_ADJACENT_TITLE_1]
-[YOUR_ADJACENT_TITLE_2]
+Working Student Business Analyst
+Werkstudent Business Analyst
+Working Student AI
+Werkstudent Künstliche Intelligenz
+Working Student Solutions Consultant
+Werkstudent Data Analytics
+Business Analyst
+Solutions Consultant
 ```
 
 #### WebSearch-only (`site:` fallback)
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "Working Student" "Business Analyst" Berlin
+site:stepstone.de "Werkstudent" "Business Analyst" Berlin
+site:linkedin.com/jobs "Working Student" "AI" Berlin
+site:berlinstartupjobs.com "working student" AI
+site:linkedin.com/jobs "Solutions Consultant" "Working Student" Germany
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 4: Target companies and sector focus (sports tech, fintech)
 
-Wider net for general technical roles.
+Wider net through target employers' own career pages.
 
 #### Plain terms (portal CLIs)
 
 ```
-[YOUR_KEY_SKILL] developer
-technical consultant
+Working Student Sports Tech
+Working Student Fintech
+Werkstudent Fintech
 ```
 
 #### WebSearch-only (`site:` fallback)
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:jobs.sap.com "Working Student" Berlin
+site:jobs.siemens.com "Working Student" Berlin
+site:careers.garmin.com Germany
+site:jobs.zalando.com "Working Student"
+site:careers.deliveryhero.com "Working Student" Berlin
+site:getyourguide.careers "Working Student"
+site:sumup.com/careers Berlin
+site:boards.greenhouse.io "Working Student" Berlin (Product OR "Business Analyst")
+"Working Student" (Strava OR Spotify OR Wolt OR Bolt OR Databricks) Berlin
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+Remote roles are preferred. Accept:
+- Berlin, on-site or hybrid: ideal
+- Fully remote within Germany: ideal (preferred)
+- Hybrid with occasional travel to another German city: borderline, flag it
+- On-site outside Berlin: too far (fail)
+- Outside Germany, unless fully remote from Germany: too far (fail)
 
 ## Language Filter
 
-Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). Postings simply *written* in a language you don't work in, that don't require it on the job, are fine.
+Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). **Candidate override:** German required at C1 or above ("fluent", "fließend", "verhandlungssicher") is excluded. Postings simply *written* in German that don't require German on the job are fine.
+
+## Hours Filter
+
+Student visa: up to 20 h/week during the semester until Nov 2027. Prefer working-student / part-time postings; flag full-time postings that start before graduation.
 
 ## Date Filter
 
@@ -126,4 +165,5 @@ Only include jobs posted within the last 14 days, matching `/scrape` Step 1b.3: 
 ## Adapting Queries
 
 If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+- "/scrape fintech" -> Priority 1-3 terms combined with "fintech" + SumUp / Bolt career pages
+- "/scrape sports tech" -> Priority 1-3 terms combined with "sports" + Strava / Garmin / Zalando career pages

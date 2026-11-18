@@ -59,7 +59,7 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Luis Enrique Garcia Moreno - CV},
     % Keep pdfpagemode=UseNone: this block runs after moderncv's own
     % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
     % value here would win and open every CV in fullscreen presentation mode.
@@ -69,13 +69,13 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 \usepackage{import}
 
 % Personal data
-\name{[FIRST_NAME]}{[LAST_NAME]}
+\name{Luis Enrique}{Garcia Moreno}
 % If you have no address to list, DELETE this whole line. \address{}{}{} fails
 % with "There's no line here to end" on every moderncv version.
-\address{[YOUR_ADDRESS]}{}{}
-\phone[mobile]{[YOUR_PHONE]}
-\email{[YOUR_EMAIL]}
-\extrainfo{\href{[YOUR_LINKEDIN_URL]}{LinkedIn}, \href{[YOUR_GITHUB_URL]}{GitHub}}
+\address{Berlin, Germany}{}{}
+\phone[mobile]{+49 151 47778569}
+\email{luisenriquegarciamoreno2@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/luisenriquegarcia/}{LinkedIn}, \href{https://github.com/LuisEnriqueGarcia96}{GitHub}, Born 04/12/1996, Peruvian (German student visa)}
 
 \begin{document}
 \makecvtitle
@@ -137,11 +137,14 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 **Create 2-3 profile statement templates for your main role types:**
 
 <!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For working-student roles (agile delivery / digital product support):** *[Used for: working-student applications, CV 15.10.2026 and sap_werkstudent]*
+> MSc Artificial Intelligence student at BSBI Berlin with 7+ years of experience in FMCG and Retail, most recently managing a B2B e-commerce platform in a Scrum setup. Experienced in backlog prioritization, coordinating releases with Engineering and QA, and improving commercial processes through automation. Seeking a working student role where I can support agile delivery, testing and go-live coordination for digital platforms. Available immediately for up to 20 hours per week in Berlin.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For product manager / digital product roles:** *[Used for: 2026 RESUME, general]*
+> Product and project professional with 7+ years of experience in FMCG and Retail (most recently Product Manager at Alicorp), leading end-to-end product delivery, digital transformation and commercial platforms. Track record of owning product roadmaps, driving adoption (up to 80% of channel billing on a single platform) and leading cross-functional teams from discovery to release. Currently completing an MSc in Artificial Intelligence to apply AI-driven solutions to commercial and product strategy.
+
+**For AI product / sports tech / fintech roles:** *[From LinkedIn summary + career goals; adapt per posting]*
+> Project and product professional with 7+ years leading digital transformation, commercial strategy and data analytics initiatives across FMCG and retail (Alicorp, adidas). I bridge business strategy and technology: defining roadmaps, managing cross-functional teams and building data-driven tools that translate into measurable commercial results. Now studying an MSc in Artificial Intelligence in Berlin to build AI products in [sports tech / fintech].
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

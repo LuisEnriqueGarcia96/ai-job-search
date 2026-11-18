@@ -30,6 +30,12 @@ If the candidate's permit also constrains *hours* or *start date* (a student vis
 
 A role that fails this gate is not scored and not drafted. Everything below applies only to roles that pass it.
 
+### Candidate's permit: hours gate (from /setup)
+The candidate is a Peruvian national on a **German student visa**, enrolled in the MSc AI at BSBI Berlin (18 May 2026 - 19 Nov 2027). Per the candidate's CVs, he is available for **up to 20 hours/week during the semester**.
+- Working student (Werkstudent), part-time (<=20 h/week), internships compatible with the permit: **PASS**.
+- Full-time role starting before graduation (Nov 2027): **FLAG** - quote the hours requirement and ask the candidate; do not silently score as normal.
+- Full-time role starting after Nov 2027: **PASS** for timing (post-study permit status to be confirmed with the candidate).
+
 ## Language Gate — run before scoring
 
 This gate checks a posting's language requirements against what the candidate actually speaks. It is not one of the five Scoring Dimensions below - it runs before them, structured the same way as the Eligibility Gate above: read the posting, classify against profile data, and treat a hard mismatch as FAIL before scoring. Its verdict is tracked downstream: `/rank` records the result as `language_gate` (PASS/FAIL/FLAG) with a supporting `language_note`, persists both into `seen_jobs.json`, and treats a FAIL as a shortlist veto; `/scrape` surfaces the flag in its results table and carries a language-override rule for postings whose ad language differs from the role's working language. `/apply`'s language detection (Step 1, which extracts a posting's required language generically) feeds this same check.
@@ -46,6 +52,8 @@ Judge the level comparison the same way you judge everything else in this framew
 
 **Worked example:** a candidate whose Languages table lists Spanish (Native) and English (B1/B2). A posting requiring "fluent Russian" → **FAIL**, Russian isn't declared at all. A posting requiring "fluent English" → **FLAG**, English is declared but "fluent" plausibly exceeds B1/B2 — score and draft the application, but tell the candidate this posting's bar may be a stretch and let them decide. A posting requiring "conversational English" or unspecified English → **PASS**, B1/B2 clears a "conversational" bar cleanly.
 
+**Candidate override (from /setup):** German is declared at A2. A posting that requires German at **C1 or above** ("C1", "fluent", "fließend", "verhandlungssicher", "business fluent") is a **FAIL** for this candidate, not a FLAG - his explicit deal-breaker. German at B1/B2 or "good German" stays a FLAG; "German is a plus" is a PASS.
+
 ## Scoring Dimensions
 
 Evaluate each job posting against these five dimensions:
@@ -60,9 +68,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Product management (roadmaps, backlog prioritization, user stories, release planning, UAT/go-live), Agile/Scrum, digital project/portfolio management, stakeholder management, digital transformation and process automation, Jira/Figma/Miro/Notion, MS Office
+**Moderate match areas:** Data analytics and BI (Power BI, Tableau, Excel), KPI design, Python (Jupyter) and ML fundamentals (MSc in progress), EU data regulation (GDPR, Data Act), AI tools (Claude Code, Lovable, Copilot)
+**Weak match areas:** Production software engineering, deep ML/MLOps engineering, chatbot/NLP/Rasa (currently developing, no professional experience), SAP, German-language business communication (A2)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -74,9 +82,9 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Product/project management of digital platforms (B2B e-commerce, CRM-style sales tools, SaaS rollouts) in FMCG and retail; agile delivery support; commercial process digitalization
+**Moderate:** Category/trade marketing, pricing, sales operations, retail analytics (sportswear); fintech-adjacent (digital financial ecosystem with BCP/Yape)
+**Entry-level:** AI/ML product roles, data science, sports tech, fintech product (domain interest and MSc, limited direct experience)
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -94,6 +102,7 @@ Does the role and company culture match the behavioral profile?
 - Within commute range: PASS
 - Remote with occasional office: PASS
 - Requires relocation: FAIL (deal-breaker)
+- Candidate (from /setup): Berlin on-site PASS; fully remote within Germany PASS (preferred); on-site outside Berlin FAIL
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -107,19 +116,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Main path: AI Product Manager in sports tech or fintech (building AI products that help people live healthier and more financially independent lives)
+- Now (while studying): working-student / part-time role in AI product, digital product or agile project support, ideally fintech or sports tech; remote part-time also welcome
+- After graduating (Nov 2027): full-time product role; data/AI skills as a supporting layer (data scientist / sports data analyst as a secondary path)
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: building and launching digital products, turning business problems into roadmaps, aligning stakeholders, bringing people together around a goal, AI and new technology, sports/health and personal finance topics
+- Tasks that drain: none specified by the candidate
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Student; minimum acceptable pay is the German statutory minimum wage (Mindestlohn) or above. Remote roles preferred; on-site only in Berlin.
+- **Flexibility**: Full-time MSc until Nov 2027; max 20 h/week during the semester (student visa); role must fit around classes
+- **Professional development**: Python and ML through the MSc, chatbot/NLP (Rasa), German towards B2, a portfolio project (e.g. an AI running-training prototype)
 
 ### 6. Salary Benchmark (Optional)
 
